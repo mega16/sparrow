@@ -21,11 +21,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
 
-      # Step 3: 安装依赖
-      - name: Install dependencies
-        run: npm install
+      # Step 3: 安装 pnpm
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
 
-      # Step 4: 运行测试
+      # Step 4: 安装依赖
+      - name: Install dependencies
+        run: pnpm install
+
+      # Step 5: 运行测试
       - name: Run ci
         run: npm ci
 
