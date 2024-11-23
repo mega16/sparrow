@@ -7,5 +7,3 @@ export function drawRedRect(svg) {
   rect.setAttribute('height', 100)
   svg.appendChild(rect)
 }
-
-var a;
