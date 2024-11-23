@@ -15,13 +15,11 @@ jobs:
     steps:
       # Step 1: Checkout代码
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Step 2: 设置 Node.js 环境
       - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
+        uses: actions/setup-node@v4
 
       # Step 3: 安装依赖
       - name: Install dependencies
