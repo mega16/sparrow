@@ -30,6 +30,7 @@
     "cross-env": "^7.0.3",
     "electron": "^12",
     "eslint": "^9.15.0",
+    "eslint-plugin-jest": "^28.9.0",
     "globals": "^15.12.0",
     "husky": "^9.1.7",
     "jest": "26.0.1",

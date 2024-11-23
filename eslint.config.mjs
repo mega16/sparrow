@@ -6,6 +6,10 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   {
+    env: {
+      jest: true
+    },
+    plugins: ['jest'],
     rules: {
       "no-unused-vars": "warn",
       "no-undef": "warn",

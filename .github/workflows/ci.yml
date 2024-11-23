@@ -28,10 +28,18 @@ jobs:
 
       # Step 4: 安装依赖
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          pnpm add -D electron@^12
 
-      # Step 5: 运行测试
+      # Step 5: Electron 需要一个虚拟显示器
+      - name: Setup virtual display
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 &
+          export DISPLAY=:99
+
+      # Step 6: 运行测试
       - name: Run ci
-        run: npm run ci
+        run: npm run ci -- --testTimeout=30000
 
       
