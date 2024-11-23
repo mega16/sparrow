@@ -5,7 +5,7 @@
       {
         "useBuiltIns": "entry",
         "corejs": 3,
-        "modules": false // 保持 ES 模块语法（由 Rollup 处理）
+        // "modules": false // 保持 ES 模块语法（由 Rollup 处理）
       }
     ]
   ],
