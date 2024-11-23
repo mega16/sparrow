@@ -32,6 +32,6 @@ jobs:
 
       # Step 5: 运行测试
       - name: Run ci
-        run: npm ci
+        run: npm run ci
 
       
