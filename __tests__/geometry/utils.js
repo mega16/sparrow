@@ -1,6 +1,4 @@
-import {
-  cartesian, createCoordinate,
-} from '../../src/coordinate';
+import { cartesian, createCoordinate } from '../../src/coordinate';
 import { createRenderer } from '../../src/renderer';
 import { createDiv, mount } from '../utils';
 
@@ -23,15 +21,23 @@ export function plot({
     y: 0,
     transforms,
   });
-  const shapes = geometry(renderer, index, scales, channels, styles, coordinate);
+  const shapes = geometry(
+    renderer,
+    index,
+    scales,
+    channels,
+    styles,
+    coordinate
+  );
   mount(createDiv(), renderer.node());
   const shape = get(shapes);
+  console.log('shape', shape);
   return {
     toHasAttributes(expectedAttributes) {
       const keys = Object.keys(expectedAttributes);
       const renderedAttributes = keys.reduce(
-        (obj, key) => (obj[key] = shape.getAttribute(key), obj),
-        {},
+        (obj, key) => ((obj[key] = shape.getAttribute(key)), obj),
+        {}
       );
       if (keys.indexOf('tagName') !== -1) {
         renderedAttributes.tagName = shape.tagName;

@@ -6,7 +6,7 @@
  * 3.挂载元素
  */
 
-import { applyAttributes, createSVGElement, mount } from "./utils";
+import { applyAttributes, createSVGElement, mount } from '../utils';
 
 export function shape(type, context, attributes) {
   const { group } = context; // 挂载元素
@@ -45,7 +45,16 @@ export function text(context, attributes) {
 
 export function path(context, attributes) {
   const { d } = attributes;
-  return shape('path', context, { ...attributes, d: d.flat().join(' ')});
+  // 自定义 flat 函数
+  function flattenArray(arr) {
+    return arr.reduce(
+      (acc, item) =>
+        acc.concat(Array.isArray(item) ? flattenArray(item) : item),
+      []
+    );
+  }
+  const path = Array.isArray(d) ? flattenArray(d).join(' ') : d;
+  return shape('path', context, { ...attributes, d: path });
 }
 
 /**
@@ -55,9 +64,7 @@ export function path(context, attributes) {
  */
 export function ring(context, attributes) {
   // r1 是内圆的半径，r2 是外圆的半径
-  const {
-    cx, cy, r1, r2, ...styles
-  } = attributes;
+  const { cx, cy, r1, r2, ...styles } = attributes;
   const { stroke, strokeWidth, fill } = styles;
   const defaultStrokeWidth = 1;
   const innerStroke = circle(context, {
@@ -87,5 +94,3 @@ export function ring(context, attributes) {
   });
   return [innerStroke, ring, outerStroke];
 }
-
-

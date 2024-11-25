@@ -9,5 +9,5 @@ export function channelStyles(index, channels) {
 }
 
 export function groupChannelStyles([index], channels) {
-  return channelStyles(index, channelStyles);
+  return channelStyles(index, channels);
 }

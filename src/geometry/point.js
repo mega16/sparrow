@@ -27,7 +27,7 @@ function render(renderer, I, scales, values, directStyles, coordinate) {
       // 后的优先级更高
       ...restDefaults,
       ...directStyles,
-      ...channelStyles(i, channels),
+      ...channelStyles(i, values),
       // 圆心的位置
       cx: X[i],
       cy: Y[i],
