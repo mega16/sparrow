@@ -1,4 +1,30 @@
-import { area as pathArea, line as pathLine } from './d';
+import { area as pathArea, line as pathLine, ring as pathRing } from './d';
+
+export function ring(renderer, { cx, cy, r1, r2, ...styles }) {
+  const ring = renderer.path({
+    ...styles,
+    d: pathRing([
+      [cx, cy],
+      [r1, r2],
+    ]),
+    stroke: 'none',
+  });
+  const innerStroke = renderer.circle({
+    ...styles,
+    fill: 'none',
+    r: r1,
+    cx,
+    cy,
+  });
+  const outerStroke = renderer.circle({
+    ...styles,
+    fill: 'none',
+    r: r2,
+    cx,
+    cy,
+  });
+  return [innerStroke, ring, outerStroke];
+}
 
 // 绘制等高线
 export function contour(renderer, { points, ...styles }) {

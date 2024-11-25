@@ -1,11 +1,6 @@
 import { dist, equal, sub } from '../utils';
-import {
-  line as pathLine,
-  area as pathArea,
-  sector as pathSector,
-  ring,
-} from './d';
-import { contour } from './primitive';
+import { line as pathLine, area as pathArea, sector as pathSector } from './d';
+import { contour, ring } from './primitive';
 
 // 绘制不同坐标系下面的圆
 // 绘制圆的函数和渲染器里面绘制圆的区别在于
@@ -75,7 +70,7 @@ export function rect(renderer, coordinate, { x1, y1, x2, y2, ...styles }) {
   const v0 = [x1, y1];
   const v1 = [x2, y1];
   const v2 = [x2, y2];
-  const v3 = [x1, y1];
+  const v3 = [x1, y2];
 
   // 如果坐标系转置了，改变顶点的顺序
   const vs = coordinate.isTranspose() ? [v3, v0, v1, v2] : [v0, v1, v2, v3];
@@ -105,4 +100,8 @@ export function rect(renderer, coordinate, { x1, y1, x2, y2, ...styles }) {
   const r2 = dist(center, p0); // 外半径
 
   return ring(renderer, { cx, cy, r1, r2, ...styles });
+}
+
+export function path(renderer, coordinate, attributes) {
+  return renderer.path(attributes);
 }

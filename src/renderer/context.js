@@ -6,7 +6,7 @@
  * - 挂载节点：g节点，是当前可以挂载新元素的节点。
  */
 
-import { createSVGElement, mount } from "./utils";
+import { createSVGElement, mount } from '../utils';
 
 export function createContext(width, height) {
   // 创建画布svg节点，并且设置宽高
@@ -25,4 +25,3 @@ export function createContext(width, height) {
     group: g,
   };
 }
-
