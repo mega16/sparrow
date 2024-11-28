@@ -20,7 +20,9 @@ describe('shapes', () => {
 
     expect(s.tagName).toBe('circle');
     expect(s.parentNode).toBe(renderer.group());
-    expect(getAttributes(s, ['cx', 'cy', 'r', 'fill', 'stroke', 'stroke-width'])).toEqual({
+    expect(
+      getAttributes(s, ['cx', 'cy', 'r', 'fill', 'stroke', 'stroke-width'])
+    ).toEqual({
       cx: '100',
       cy: '100',
       r: '50',
@@ -93,12 +95,7 @@ describe('shapes', () => {
 
   test('path() creates path element and accepts array to specify path.', () => {
     const renderer = createRenderer(600, 400);
-    const d = [
-      ['M', 10, 10],
-      ['L', 100, 100],
-      ['L', 100, 10],
-      ['Z'],
-    ];
+    const d = [['M', 10, 10], ['L', 100, 100], ['L', 100, 10], ['Z']];
     const path = renderer.path({
       d,
       stroke: 'black',

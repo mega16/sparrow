@@ -1,12 +1,7 @@
-import { createContext } from "./context";
-import {
-  line, circle, text, rect, path, ring,
-} from './shape';
+import { createContext } from './context';
+import { line, circle, text, rect, path, ring } from './shape';
 
-import {
-  restore, save, scale, translate, rotate,
-} from './transform';
-
+import { restore, save, scale, translate, rotate } from './transform';
 
 export function createRenderer(width, height) {
   const context = createContext(width, height);
@@ -25,5 +20,5 @@ export function createRenderer(width, height) {
     translate: (...args) => translate(context, ...args),
     node: () => context.node,
     group: () => context.group,
-  }
+  };
 }

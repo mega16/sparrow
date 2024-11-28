@@ -26,7 +26,9 @@ describe('transform', () => {
 
     mount(createDiv(), renderer.node());
 
-    expect(r1.parentNode.getAttribute('transform')).toBe('translate(200, 100) rotate(60) scale(2, 3)');
+    expect(r1.parentNode.getAttribute('transform')).toBe(
+      'translate(200, 100) rotate(60) scale(2, 3)'
+    );
     expect(r2.parentNode.getAttribute('transform')).toBeNull();
   });
 });

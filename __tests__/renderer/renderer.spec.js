@@ -18,4 +18,4 @@ describe('createRenderer', () => {
 
     mount(createDiv(), node);
   });
-})
+});

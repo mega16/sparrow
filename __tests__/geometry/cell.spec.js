@@ -69,7 +69,12 @@ describe('cell', () => {
         stroke: 'black',
       },
       transforms: [
-        polar({ startAngle: 0, endAngle: Math.PI * 2, innerRadius: 0.2, outerRadius: 1 }),
+        polar({
+          startAngle: 0,
+          endAngle: Math.PI * 2,
+          innerRadius: 0.2,
+          outerRadius: 1,
+        }),
         cartesian(),
       ],
       channels: {

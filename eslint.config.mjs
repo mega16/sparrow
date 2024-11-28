@@ -4,8 +4,15 @@ import jestPlugin from 'eslint-plugin-jest';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { ignores: ['**/node_modules', '**/lib', 'commitlint.config.js', 'jest.config.js'] },
-  { languageOptions: { globals: {...globals.browser, ...globals.jest } } },
+  {
+    ignores: [
+      '**/node_modules',
+      '**/lib',
+      'commitlint.config.js',
+      'jest.config.js',
+    ],
+  },
+  { languageOptions: { globals: { ...globals.browser, ...globals.jest } } },
   pluginJs.configs.recommended,
   {
     plugins: {

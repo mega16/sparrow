@@ -1,6 +1,4 @@
-import {
-  cartesian, polar, transpose,
-} from '../../src/coordinate';
+import { cartesian, polar, transpose } from '../../src/coordinate';
 import { interval } from '../../src/geometry';
 import { createBand } from '../../src/scale';
 import { plot } from './utils';
@@ -64,7 +62,14 @@ describe('interval', () => {
         }),
       },
       channels: {
-        fill: ['#5B8FF9', '#5B8FF9', '#5B8FF9', '#5AD8A6', '#5AD8A6', '#5AD8A6'],
+        fill: [
+          '#5B8FF9',
+          '#5B8FF9',
+          '#5B8FF9',
+          '#5AD8A6',
+          '#5AD8A6',
+          '#5AD8A6',
+        ],
         x: [0, 1 / 3, 2 / 3, 0, 1 / 3, 2 / 3],
         y: [0.6, 0.5, 0.8, 0.3, 0.2, 0.3],
         y1: [1, 1, 1, 0.6, 0.5, 0.8],
@@ -100,7 +105,14 @@ describe('interval', () => {
         }),
       },
       channels: {
-        fill: ['#5B8FF9', '#5B8FF9', '#5B8FF9', '#5AD8A6', '#5AD8A6', '#5AD8A6'],
+        fill: [
+          '#5B8FF9',
+          '#5B8FF9',
+          '#5B8FF9',
+          '#5AD8A6',
+          '#5AD8A6',
+          '#5AD8A6',
+        ],
         x: [0, 1 / 3, 2 / 3, 0, 1 / 3, 2 / 3],
         y: [0.6, 0.5, 0.8, 0.3, 0.2, 0.3],
         y1: [1, 1, 1, 1, 1, 1],
@@ -170,7 +182,12 @@ describe('interval', () => {
         y1: [1, 1, 1],
       },
       transforms: [
-        polar({ startAngle: 0, endAngle: Math.PI * 2, innerRadius: 0.2, outerRadius: 1 }),
+        polar({
+          startAngle: 0,
+          endAngle: Math.PI * 2,
+          innerRadius: 0.2,
+          outerRadius: 1,
+        }),
         cartesian(),
       ],
     }).toHasAttributes({
@@ -196,7 +213,12 @@ describe('interval', () => {
         y1: [1 / 3, 2 / 3, 1],
       },
       transforms: [
-        polar({ startAngle: 0, endAngle: Math.PI * 2, innerRadius: 0.2, outerRadius: 1 }),
+        polar({
+          startAngle: 0,
+          endAngle: Math.PI * 2,
+          innerRadius: 0.2,
+          outerRadius: 1,
+        }),
         cartesian(),
       ],
       get: (d) => d[0][1],
@@ -224,7 +246,12 @@ describe('interval', () => {
       },
       transforms: [
         transpose(),
-        polar({ startAngle: 0, endAngle: Math.PI * 2, innerRadius: 0.2, outerRadius: 1 }),
+        polar({
+          startAngle: 0,
+          endAngle: Math.PI * 2,
+          innerRadius: 0.2,
+          outerRadius: 1,
+        }),
         cartesian(),
       ],
     }).toHasAttributes({
